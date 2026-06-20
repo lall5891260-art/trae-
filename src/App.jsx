@@ -137,6 +137,24 @@ const modules = [
   },
 ];
 
+const methodCards = [
+  {
+    title: '表达膨胀',
+    label: '流水账 → 周报',
+    desc: '把普通工作痕迹包装成结构化成果，让“我做了点事”至少看起来像“我推进了闭环”。',
+  },
+  {
+    title: '信息脱水',
+    label: '长通知 → 结论',
+    desc: '把会议纪要、群公告和高管讲话压缩为结论、任务与风险，减少“读完但没收到货”的痛苦。',
+  },
+  {
+    title: '语气翻译',
+    label: '情绪话 → 职场话',
+    desc: '把想直接发出去的那句气话，翻译成能发、能留痕、还能保住边界感的回复。',
+  },
+];
+
 /* ------------------------------------------------------------------ */
 /*  Toast 组件                                                         */
 /* ------------------------------------------------------------------ */
@@ -517,16 +535,19 @@ function App() {
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-acid/30 bg-acid/10 px-3 py-1 text-sm text-acid">
               <Sparkles size={16} />
-              TRAE AI 创造力大赛 · 学习工作 / 造个新解法
+              TRAE AI 创造力大赛 · 学习工作 / 表达重构系统
             </div>
             <h1 className="text-3xl font-black tracking-tight text-white sm:text-5xl">
-              已读乱回
+              Anti-Format Loop
               <span className="ml-3 bg-gradient-to-r from-acid to-violet bg-clip-text text-transparent">
-                Anti-Format
+                已读乱回
               </span>
             </h1>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-              把流水账膨胀成周报，把冗长会议压缩成结论，把情绪化表达翻译成高情商职场回复。
+              一个把职场语言里的噪音重新整理的表达重构工具：该膨胀时把流水账变周报，该脱水时把长通知压成结论，该克制时把气话翻译成体面但有边界感的回复。
+            </p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
+              This project is not about generating more text — it is about removing noise from workplace language.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-night/70 p-4 text-sm text-slate-300">
@@ -534,6 +555,21 @@ function App() {
             <p className="mt-1 text-lg font-semibold text-white">{currentModule.title}</p>
           </div>
         </header>
+
+        <section className="grid gap-4 md:grid-cols-3">
+          {methodCards.map((card) => (
+            <article
+              key={card.title}
+              className="rounded-3xl border border-white/10 bg-panel/70 p-5 backdrop-blur transition hover:border-acid/30 hover:bg-white/[0.06]"
+            >
+              <div className="mb-3 inline-flex rounded-full border border-violet/30 bg-violet/10 px-3 py-1 text-xs font-semibold text-violet">
+                {card.label}
+              </div>
+              <h2 className="text-lg font-bold text-white">{card.title}</h2>
+              <p className="mt-2 text-sm leading-6 text-slate-400">{card.desc}</p>
+            </article>
+          ))}
+        </section>
 
         {/* ========== Main Grid ========== */}
         <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
